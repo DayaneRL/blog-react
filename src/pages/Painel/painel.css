@@ -1,0 +1,151 @@
+.painel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: sans-serif;
+}
+
+.painel span{
+    margin: 2em 0;
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+.novo{
+    float: right;
+    margin-bottom: 1.5em;
+    background-color: #72a700;
+    color:#fff;
+    padding: .5em;
+    border: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.1em;
+    border-radius: 6px;
+    transition: ease-in 0.2s;
+    text-decoration: none;
+}
+
+.novo svg{
+    margin-right: 1.5px;
+}
+
+.novo:hover{
+    background-color: #5f8b00;
+    color: #fff;
+    text-decoration: none;
+}
+
+table{
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+}
+
+table caption{
+    font-size: 1.5em;
+    margin: .5em 0 .75em;
+}
+
+table tr{
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: .35em;
+}
+
+table th, table td{
+    padding: .62em;
+    text-align: center;
+}
+
+table th{
+    font-size: .85em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+table td .action{
+    border:0;
+    padding: 5px;
+    margin: 0 2px 0 0;
+    align-items: baseline;
+    display: inline-block;
+    border-radius: 4px;
+}
+
+table td .action svg{
+    vertical-align: middle;
+}
+
+table td .badge{
+    padding: 3px;
+    border-radius:  4px;
+    color: #fff;
+}
+
+.btn-more{
+    margin:  1.5em 0;
+    padding: .5em 1em;
+    border: 0;
+    border-radius:  5px;
+    background-color: #121212fc;
+    color:#fff;
+    font: 1.1em;
+}
+
+.action-edit{
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+@media screen  and (max-width: 600px){
+    table{
+        border: 0;
+    }
+
+    table caption{
+        font-size: 1.3em;
+    }
+
+    table thead{
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+
+    table tr{
+        border-bottom:3px solid #ddd ;
+        display: block;
+        margin:  0 0 .65em 0;
+    }
+
+    table td{
+        border-bottom: 1px solid #ddd;
+        display: block;
+        font-size: .8em;
+        text-align: right;
+    }
+
+    table td::before{
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    table td:last-child{
+        border-bottom: 0;
+    }
+    
+}

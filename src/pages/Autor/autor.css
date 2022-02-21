@@ -1,0 +1,34 @@
+.autor{
+    display: flex;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    padding: 4em 5em;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    margin-bottom: 1em;
+    font-family: sans-serif;
+}
+
+.autor input, textarea, select{
+    text-align: center;
+}
+
+.disable{
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+@media screen and (max-width:450px) {
+    .autor input, textarea, select{
+        max-width: 350px;
+        min-width: 300px;    
+    }
+    .form-profile button{
+        max-width: 350px;
+        min-width: 300px; 
+    }
+    .autor label{
+        font-size: 1.2em;
+    }
+}

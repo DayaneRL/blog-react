@@ -1,0 +1,129 @@
+* { padding: 0; margin: 0; }
+
+.container-center{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+
+.login{
+    background: #EAEAEC;
+    width: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9px;
+    font-family: sans-serif;
+    padding: 0;
+}
+
+.login-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #121212fc;
+    width: 100%;
+    border-radius: 7px 0 0 7px;
+    height: 325px;
+}
+
+.login-area img{
+    padding: 20px;
+    height: 145px;
+    width: 170px;
+}
+
+.cad{
+    height: 375px !important;
+}
+
+form{
+    margin: 1.5em 0 1.5em 0;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    /* border-left: 1px solid  #121212; */
+}
+
+form h1{
+   
+    text-align: center;
+    margin: 0 0 0.5em 0;
+    color: #181c2e;
+}
+
+.login input{
+    margin-bottom: 15px;
+    height: 35px;
+    border: 0;
+    border-radius: 7px;
+    padding: 10px;
+    font-size: 15px;
+    background-color:#fff;
+    max-width: 600px;
+}
+
+form button{
+    height: 35px;
+    border: 0;
+    border-radius: 7px;
+    background-color: #121212fc;
+    color:#fff;
+    font-size: 1.3em;
+    cursor: pointer;
+}
+
+.login a{
+    margin: 1.5em 0;
+    color: #000;
+    text-decoration: none;
+    text-align: center;
+}
+
+.spinner {
+    animation: rotate 6s infinite linear;
+}
+  
+@keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}
+
+@media screen and (max-width:450px) {
+    .login{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .login-area{
+        border-radius: 7px 7px 0 0;
+    }   
+}
+
+@media screen and (max-width:760px) {
+    .login{
+        flex-direction: column;
+        width: 100%;
+    }
+    .login input{
+        max-width: 700px;
+    }
+    .login-area{
+        border-radius: 7px 7px 0 0;
+    }
+}
+
+@media screen and (min-width:770px) {
+    .login input{
+        max-width: 350px;
+    }
+    .login button{
+        max-width: 350px;
+    }
+}

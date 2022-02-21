@@ -1,0 +1,99 @@
+.sidebar{
+    margin:0;
+    padding: 0;
+    width: 200px;
+    background-color: #121212fc;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    font-family: sans-serif;
+}
+
+.sidebar div{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px;
+    padding-top: 30px;
+}
+
+.sidebar div h2, .sidebar div p{
+    color: #fff;
+    align-items: center;
+    text-align: center;
+    margin: 5px;
+}
+
+.sidebar div img{
+    border-radius: 50%;
+    display: block;
+    margin: auto;
+    height: 90px;
+    width: 90px;
+    filter: drop-shadow(2px 3px 6px #121212);
+    -webkit-filter: drop-shadow(2px 3px 6px #121212);
+    object-fit: cover; /*para a imagem se extender, caso a imagem nao seja quadrada*/
+}
+
+.sidebar a{
+    display: block;
+    color: rgba(255,255,255, 0.7);
+    padding: 16px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transition: ease-in-out .3s;
+}
+.sidebar a:hover{
+    background-color:#7e7e7e2e;
+    color:#fff;
+}
+
+.sidebar a svg{
+    margin: 0 .5em 0 0;
+}
+
+.content{
+    margin-left: 200px;
+    padding: 1px 16px;
+}
+
+hr{
+    border-top: 1px solid #fff;
+}
+
+@media screen and (max-width: 700px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    .sidebar a{
+        float: left;
+    }
+    .sidebar div{
+        display: none;
+    }
+    .content{
+        margin-left: 0;
+    }
+    hr{
+        border-top: 0;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .sidebar a{
+        text-align: center;
+        float: none;
+    }
+    .sidebar a svg, .content svg{
+        display: none;
+    }
+    hr{
+        border-top: 0;
+        margin: 0;
+    }
+}
