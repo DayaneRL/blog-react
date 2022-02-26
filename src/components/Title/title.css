@@ -16,9 +16,11 @@
 }
 
 .sair{
+    text-decoration: none;
     padding: 4px 7px;
     background-color: transparent;
     border:  0;
+    color: #121212;
     font-size: 1.2em;
     display: flex;
     justify-content: center;
@@ -33,9 +35,9 @@
     }
 
 }
-@media screen and (max-width:600px) {
+@media only screen and (min-width:400px) and  (max-width:600px) {
     .sair{
-        margin-left: 50%;
+        margin-left: 45%;
     }
 }
 

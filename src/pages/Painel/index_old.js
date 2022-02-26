@@ -123,48 +123,49 @@ export default function Painel() {
           <div className="container painel">
             <span>Nenhum chamado registrado...</span>
             <Link to="/novoPost" className="novo">
-              <FiPlus size={25} color="#fff"/>Novo post
+              <FiPlus size={25} color="#fff"/>Novo chamado
             </Link>
           </div> 
         ) : (
           <>
+          <Link to="/novoPost" className="novo">
+            <FiPlus size={25} color="#fff"/>Novo chamado
+          </Link>
 
-          <div className="container">
-            <Link to="/novoPost" className="novo bg-success" style={{float:"none", padding: "0.1em", marginBottom: "1em"}}>
-              <FiPlus size={25} color="#fff"/>Novo post
-            </Link>
-
-            <div className="mb-2">
-            {posts.map((item, index)=>{
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Autor</th>
+                <th scope="col">Título</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Cadastrado em</th>
+                <th scope="col"> # </th>
+              </tr>
+            </thead>
+            <tbody>
+              {posts.map((item, index)=>{
                 return(
-                  <div key={index} id="post" className="card mb-2 col-md-12 p-0 show-shadow">
-            
-                      <div className="card-body mr-0">
-                          <h3> titulo </h3>
-                          <div className="d-flex align-items-center justify-content-between small">
-                              <div>
-                                  <i className="far fa-calendar-alt mr-1"></i>12/12/1212
-                                  &middot;
-                                  <i className="far fa-user mr-1"></i><a href=""> autor </a>
-                              </div>
-                          </div>
-                          <hr/>
-          
-                          <p>conteudo post </p>
-                          <a href="" >Ver Detalhes</a>
-                      </div>
-          
-                      <div className="card-footer">
-                          <small><i className="fas fa-folder mr-1"></i><a href="">categoria</a> /</small>
-                          <small><i className="fas fa-comment mr-1"></i>0 comentarios</small>
-                      </div>
-                      
-                  </div>
+                  <tr key={index}>
+                    <td data-label="Autor">{item.autor}</td>
+                    <td data-label="Titulo">{item.titulo}</td>
+                    <td data-label="Categoria">{item.categoria}
+                    </td>
+                    <td data-label="Cadastrado">{item.createdFormated}</td>
+                    <td data-label="#">
+                      <button className="action" style={{backgroundColor: '#3583f6'}} onClick={()=>optionModal(item)}>
+                        <FiSearch color="#fff" size={17}/>
+                      </button>
+
+                      <Link to={`/novoPost/${item.id}`} className="action action-edit" style={{backgroundColor: '#F6a935'}}>
+                        <FiEdit2 color="#fff" size={17}/>
+                      </Link>
+                    </td>
+                  </tr>
                 )
-            })}
-            </div>
+              })}
             
-          </div>
+            </tbody>
+          </table>
 
           {more && <h3 style={{textAlign: 'center', marginTop:15}}> Buscando dados...</h3>}
           {!more && !empty && <button className="btn-more" onClick={mais}>Buscar Mais</button>}

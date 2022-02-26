@@ -24,6 +24,20 @@
     margin: 5px;
 }
 
+.sidebar div a{
+    background: #fff;
+    color: #121212;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 5px 5px 5px;
+    transition: all .2s;
+}
+.sidebar div a:hover{
+    background: #fff;
+    color: #121212;
+    font-size: 20px;
+}
+
 .sidebar div img{
     border-radius: 50%;
     display: block;
