@@ -70,13 +70,15 @@ table th{
     text-transform: uppercase;
 }
 
-table td .action{
+.card-body .action{
     border:0;
     padding: 5px;
     margin: 0 2px 0 0;
     align-items: baseline;
     display: inline-block;
     border-radius: 4px;
+    background: none;
+    color: #007bff;
 }
 
 table td .action svg{
@@ -97,11 +99,6 @@ table td .badge{
     background-color: #121212fc;
     color:#fff;
     font: 1.1em;
-}
-
-.action-edit{
-    cursor: not-allowed;
-    opacity: 0.5;
 }
 
 @media screen  and (max-width: 600px){

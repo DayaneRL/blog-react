@@ -27,6 +27,19 @@
     margin-top: 0.9em;
 }
 
+.post-show hr{
+    border-top:1px solid #ccc;
+}
+
+.post-show svg{
+    margin-right: 5px;
+    margin-left: 10px;
+}
+
+.post-show p{
+    margin: 20px;
+}
+
 .row{
     flex: 0 !important;
 }

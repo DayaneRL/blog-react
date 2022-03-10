@@ -18,7 +18,8 @@ export default function RouterWrapper({
         return <Redirect to="/"/>
     }
 
-    if(signed && !isPrivate){//se ta logado e tentou acessar tela nao privada
+    //se ta logado e tentou acessar tela nao privada
+    if(signed && !isPrivate && rest.path!=='/categorias' && rest.path!=='/autores' && rest.path!=='/novoPost'){
         return <Redirect to="/painel"/>
     }
 

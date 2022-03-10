@@ -10,19 +10,18 @@ export default function Modal({item, close}){
                 </button>
 
                 <div>
-                    <h2>Post</h2>
+                    <h2>{item.titulo}</h2>
 
                     <div className="row">
                         <span>Autor: <i>{item.autor}</i></span>
                     </div>
 
                     <div className="row">
-                        <span>Assunto: <i>{item.titulo}</i></span>
-                        <span>Cadastrado: <i>{item.createdFormated}</i></span>
+                        <span>Categoria: <i>{item.categoria}</i></span>
                     </div>
 
                     <div className="row">
-                        <span>Categoria: <i>{item.categoria}</i></span>
+                        <span>Cadastrado: <i>{item.createdFormated}</i></span>
                     </div>
 
                     <div className="row">

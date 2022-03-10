@@ -10,8 +10,13 @@
     font-family: sans-serif;
 }
 
-.autor input, textarea, select{
-    text-align: center;
+.autor input{
+    margin-bottom: 1em;
+    font-size: 1.1em;
+    padding: 0.3em;
+    border: 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
 .disable{

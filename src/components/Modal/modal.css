@@ -16,18 +16,21 @@
     left: 0;
     right: 0;
     margin: 0 auto;
-    padding: 4em 2rem;
+    padding: 2rem;
     background-color: #fff;
     box-shadow: 0 0 20px rgba(0,0,0,0.8);
 }
+.modal .container h2{
+    margin-top: 1em;
+    text-align: center;
+}
 
 .fechar{
+    float: right;
+    margin-bottom: 1.5em;
     background-color: #811800;
     border: 0;
     color: #000;
-    position: absolute;
-    top: 15px;
-    left: 15px;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -5,13 +5,13 @@ import Header from "../../components/Header";
 import Title from "../../components/Title";
 import { FiAlignJustify, FiPlus, FiSearch, FiEdit2 } from "react-icons/fi";
 import {format} from "date-fns";
-import './painel.css'
 
 import firebase from "../../services/firebaseConn";
+import Modal from "../../components/Modal";
 
-const url = firebase.firestore().collection('posts').orderBy('created_at', 'desc');
 
-export default function Painel() {
+export default function MeusPosts() {
+  
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [more, setMore] = useState(false);
@@ -20,9 +20,12 @@ export default function Painel() {
   const [ modal, setModal] = useState(false);
   const [detalhes, setDetalhes] = useState();
 
-  useEffect(()=>{
+  const {user} = useContext(AuthContext);
+  const url = firebase.firestore().collection('posts').where('user_id','==',user.uid);
 
-    async function loadChamados(){
+  useEffect(()=>{
+   console.log(user.uid);
+    async function loadMeusPosts(){
       await url.limit(5)
       .get()
       .then((snapshot)=>{
@@ -36,7 +39,7 @@ export default function Painel() {
       setLoading(false);
     }
 
-    loadChamados();
+    loadMeusPosts();
 
     return () => {
 
@@ -54,6 +57,7 @@ export default function Painel() {
           autor: doc.data().autor,
           autor_id: doc.data().autor_id,
           categoria: doc.data().categoria,
+          conteudo: doc.data().conteudo,
           created_at: doc.data().created_at,
           createdFormated: format(doc.data().created_at.toDate(), 'dd/MM/yyyy'),
         })
@@ -61,7 +65,6 @@ export default function Painel() {
 
       const lastDoc = snapshot.docs[snapshot.docs.length - 1]; //pegando ultimo doc buscado
 
-      //pega os chamados que ja tem e adiciona as listas carregadas
       setPosts(posts => [...posts,...lista]);
       setLastPost(lastPost);
     }else{
@@ -73,8 +76,7 @@ export default function Painel() {
 
   async function mais(){
     setMore(true);
-    await url.startAfter(lastPost).limit(5)
-    .get()
+    await url.startAfter(lastPost).limit(5).get()
     .then((snapshot)=>{
       updateState(snapshot);
     })
@@ -83,13 +85,19 @@ export default function Painel() {
     })
   }
 
+  function optionModal(item){
+    setModal(!modal);//trocando de true pra false
+    setDetalhes(item);
+    console.log(item);
+  }
+
   if(loading){
     return(
       <div>
           <Header/>
 
         <div className="content">
-          <Title name="Publicações">
+          <Title name="Meus Posts">
             <FiAlignJustify size={25}/>
           </Title>
 
@@ -107,60 +115,67 @@ export default function Painel() {
         <Header/>
 
         <div className="content">
-          <Title name="Publicações">
+          <Title name="Meus Posts">
             <FiAlignJustify size={25}/>
           </Title>
+
+        <div className="card-body">
 
         {posts.length===0 ? (
 
           <div className="container painel">
-            <span>Nenhum chamado registrado...</span>
+            <span>Nenhum post registrado...</span>
             <Link to="/novoPost" className="novo">
               <FiPlus size={25} color="#fff"/>Novo post
             </Link>
           </div> 
         ) : (
+          <>
+          <Link to="/novoPost" className="novo">
+            <FiPlus size={25} color="#fff"/>Novo post
+          </Link>
 
-          <div className="container">
-            {/* <Link to="/novoPost" className="novo bg-success" style={{float:"none", padding: "0.1em", marginBottom: "1em"}}>
-              <FiPlus size={25} color="#fff"/>Novo post
-            </Link> */}
-
-            <div className="mb-2">
-            {posts.map((item, index)=>{
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Título</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Cadastrado em</th>
+                <th scope="col"> # </th>
+              </tr>
+            </thead>
+            <tbody>
+              {posts.map((item, index)=>{
                 return(
-                  <div key={index} id="post" className="card mb-2 col-md-12 p-0 show-shadow">
-            
-                      <div className="card-body mr-0">
-                          <h3> {item.titulo} </h3>
-                          <div className="d-flex align-items-center justify-content-between small">
-                              <div>
-                                  <i className="far fa-calendar-alt mr-1"></i>{item.createdFormated}
-                                  &middot;
-                                  <i className="far fa-user mr-1"></i><a href=""> {item.autor} </a>
-                              </div>
-                          </div>
-                          <hr/>
-          
-                          <p>conteudo post </p>
-                          <Link to = {`/post/${item.id}`}>Ver Detalhes</Link>
-                         
-                      </div>
-          
-                      <div className="card-footer">
-                          <small><i className="fas fa-folder mr-1"></i><a href="">{item.categoria}</a> /</small>
-                          <small><i className="fas fa-comment mr-1"></i>0 comentarios</small>
-                      </div>
-                      
-                  </div>
-                )
-            })}
-            </div>
-            
-          </div>
+                  <tr key={index}>
+                    <td data-label="Titulo">{item.titulo}</td>
+                    <td data-label="Categoria">{item.categoria}
+                    </td>
+                    <td data-label="Cadastrado">{item.createdFormated}</td>
+                    <td data-label="#">
+                      <button className="action" style={{backgroundColor: '#3583f6'}} onClick={()=>optionModal(item)}>
+                        <FiSearch color="#fff" size={17}/>
+                      </button>
 
+                      <Link to={`/novoPost/${item.id}`} className="action " style={{backgroundColor: '#F6a935'}}>
+                        <FiEdit2 color="#fff" size={17}/>
+                      </Link>
+                    </td>
+                  </tr>
+                )
+              })}
+            
+            </tbody>
+          </table>
+
+          {more && <h3 style={{textAlign: 'center', marginTop:15}}> Buscando dados...</h3>}
+          {!more && !empty && <button className="btn-more" onClick={mais}>Buscar Mais</button>}
+          </>
         )}
         </div>
+        </div>
+
+        {modal && (<Modal item={detalhes} close={optionModal}/>)}
 
       </div>
     );
