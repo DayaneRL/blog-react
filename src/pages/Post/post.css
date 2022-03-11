@@ -57,6 +57,19 @@
     border-radius: 5px;
 }
 
+.form-group{
+    margin: 0;
+}
+
+.post-row{
+    margin-bottom:0 !important;
+}
+
+.disabled{
+    cursor: not-allowed !important;
+    opacity: 0.5;
+}
+
 @media screen and (max-width: 450px){
     .post{
         padding: 1em;

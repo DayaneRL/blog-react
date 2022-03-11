@@ -11,7 +11,7 @@ export default function Header(){
     return(
         <div className="sidebar">
             <div>
-                <img src={!user.avatarUrl ? avatar : user.avatarUrl} alt="avatar"/>
+                <img src={!user ? avatar : (!user.avatarUrl? avatar : user.avatarUrl)} alt="avatar"/>
                 {!user?( 
                     <Link to="/login"> Login </Link>
                 ):(<></>)}

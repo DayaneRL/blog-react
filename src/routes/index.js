@@ -15,7 +15,7 @@ import PageNotFound from '../pages/NotFound';
 export default function Routes(){
     return(
         <Switch>
-            <Route exact path="/" component={Painel} />
+            <Route exact path="/" component={Painel}/>
             <Route exact path="/login" component={Login}/>
             <Route exact path="/cadastro" component={Cadastro}/>
 
@@ -25,7 +25,7 @@ export default function Routes(){
             <Route exact path="/categorias" component={Categoria} />
             <Route exact path="/meusPosts" component={MeusPosts} isPrivate/>
             <Route exact path="/novoPost" component={Post} />
-            <Route exact path="/novoPost/:id" component={Post} />
+            <Route exact path="/novoPost/:id" component={Post} isPrivate/>
             <Route exact path="/post/:id" component={PostShow}/>
             <Route path="*" component={PageNotFound} />
         </Switch>
