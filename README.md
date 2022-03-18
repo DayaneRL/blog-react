@@ -4,23 +4,22 @@ Projeto realizado usando bootstrap, react e firebase.
 
 ## Como funciona
 
-Ele exibe um painel de publicações de posts, podendo incluir imagens ou não.
+Ele exibe um painel de publicações de posts, podendo ver e publicar posts estando ou não logado.
+Permite login e novo cadastro de usuário.
 Para publicar, pode-se criar um autor para a publicação do post ou publicar como o usuário logado.
-Estou trabalhando nas regras de publicação, e novo modo de exibição.
+Cadastros de posts pode incluir imagens ou não.
 
 ### Funcionalidades
 
-Cadastrar-se no sitema, Logar/deslogar, Editar nome e imagem de usuário.
-Cadastrar um novo autor, cadastrar um novo post, exibir os posts.
+Cadastrar-se no sistema, Logar/deslogar, Editar nome e imagem de usuário.
+Cadastrar um novo autor, categoria e posts.
+Exibir todos posts e se tiver logado meus posts.
 
-#### Funcionalidades futuras
+### Funcionalidades futuras
 
-Cadastrar categorias;
-Listar categorias;
-Cadastrar comentarios em posts;
-Editar Post;
-Apagar Post;
+Exibir imagem na página principal;
+Paginação;
 
 ## Testar
 
-  Link futuro~
+  Link para teste: <a href="https://dayanerl-blog-react.herokuapp.com/" target="_blank"> Blog React </a>
