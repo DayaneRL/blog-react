@@ -30,7 +30,7 @@ export default function MeusPosts() {
   useEffect(()=>{
 
     async function loadMeusPosts(){
-      await url.limit(5)
+      await url.limit(4)
       .get()
       .then((snapshot)=>{
         updateState(snapshot);
@@ -89,8 +89,9 @@ export default function MeusPosts() {
     })
   }
 
-  function optionModal(id, posts){
+  function optionModal(item){
     setModal(!modal);//trocando de true pra false
+    setDetalhes(item);
   }
   function optionModalExcluir(id){
     setModalExcluir(!modalExcluir);
@@ -155,9 +156,9 @@ export default function MeusPosts() {
           </div> 
         ) : (
           <>
-          <Link to="/novoPost" className="novo">
+          {/* <Link to="/novoPost" className="novo">
             <FiPlus size={25} color="#fff"/>Novo post
-          </Link>
+          </Link> */}
 
           <table>
             <thead>
@@ -196,7 +197,7 @@ export default function MeusPosts() {
             </tbody>
           </table>
 
-          {more && <h3 style={{textAlign: 'center', marginTop:15}}> Buscando dados...</h3>}
+          {more && <h5 style={{textAlign: 'center', marginTop:15}}> Buscando dados...</h5>}
           {!more && !empty && <button className="btn-more" onClick={mais}>Buscar Mais</button>}
           </>
         )}

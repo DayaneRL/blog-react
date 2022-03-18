@@ -76,8 +76,18 @@
     display: grid;
 }
 
+.modal-items div{
+    display: flex;
+}
+
 .aceitar-modal{
-    background-color: #6c757d;
+    background-color: #5b7f9e;
+}
+.cancelar-modal{
+    background-color: #ce5e5e;
+}
+
+.btn{
     border: 0;
     color: #fff;
     display: flex;
@@ -86,4 +96,9 @@
     padding: 0 2px 0 7px;
     border-radius: 5px;
     min-width: 150px;
+    margin: 5px;
+}
+
+.btn:hover{
+    color:#fff;
 }
