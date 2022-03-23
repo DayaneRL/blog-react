@@ -48,7 +48,7 @@ export default function MeusPosts() {
     return () => {
 
     }
-  }, [url]);
+  }, []);
 
   async function updateState(snapshot){
     const colletionEmpty = snapshot.size === 0;
