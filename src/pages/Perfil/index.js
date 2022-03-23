@@ -12,7 +12,7 @@ export default function Perfil(){
     const {user, setUser, storageUser, sair,loadingAuth} = useContext(AuthContext);
     
     const [nome,setNome] = useState(user && user.nome);
-    const [email,setEmail] = useState(user && user.email);
+    const [email] = useState(user && user.email);
     const [avatarUrl,setAvatarUrl] = useState(user && user.avatarUrl);
     const [imageAvatar, setImageAvatar] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -34,14 +34,14 @@ export default function Perfil(){
     async function uploadImage(){
         const uid = user.uid;
 
-        const uploadTask = await firebase.storage()
+        await firebase.storage()
         .ref(`images/users/${uid}/${imageAvatar.name}`)
         .put(imageAvatar)
         .then(async ()=>{
             setLoading(true);
 
             if(user.avatarUrl!==null){ //apaga a imagem anterior
-                const ref = await firebase.storage().refFromURL(`${user.avatarUrl}`).delete()
+                await firebase.storage().refFromURL(`${user.avatarUrl}`).delete()
             }
 
             await firebase.storage().ref(`images/users/${uid}`)

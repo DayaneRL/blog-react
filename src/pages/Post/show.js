@@ -38,7 +38,7 @@ export default function PostShow({match}){
         }
         
         loadPost();
-    },[]);
+    },[match.params.id]);
 
     if(loading){
         return(
@@ -83,7 +83,7 @@ export default function PostShow({match}){
                                 </div>
                             </div>
                             <hr/>
-                            <img src={post.imagem} style={{width: "90%", height: "150px", margin:"20px"}}/>
+                            <img src={post.imagem} style={{width: "90%", height: "150px", margin:"20px"}} alt="Post imagem"/>
 
                             <p>{post.conteudo} </p>
                           

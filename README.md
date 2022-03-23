@@ -17,7 +17,6 @@ Exibir todos posts e se tiver logado meus posts.
 
 ### Funcionalidades futuras
 
-Exibir imagem na página principal;
 Paginação;
 
 ## Testar

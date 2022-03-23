@@ -47,6 +47,7 @@ export default function Painel() {
           autor_id: doc.data().autor_id,
           categoria: doc.data().categoria,
           conteudo: doc.data().conteudo,
+          imagem: doc.data().imagem,
           created_at: doc.data().created_at,
           createdFormated: format(doc.data().created_at.toDate(), 'dd/MM/yyyy'),
         })
@@ -112,8 +113,10 @@ export default function Painel() {
                                   <FiUser size={15} className="ml-2 mr-1"/>{item.autor} 
                               </div>
                           </div>
-                          <hr/>
-          
+                          
+                          {item.imagem &&
+                          <img src={item.imagem} alt="Post imagem"/>}
+
                           <p>{item.conteudo}</p>
                           <Link to = {`/post/${item.id}`}>Ver Detalhes</Link>
                       </div>

@@ -102,6 +102,13 @@ table td .badge{
     width: 100%
 }
 
+#post .card-body img{
+    width: 95%,;
+    max-height: 200px; 
+    margin: 20px;
+    border-radius: 10px;
+}
+
 @media screen  and (max-width: 600px){
     table{
         border: 0;
