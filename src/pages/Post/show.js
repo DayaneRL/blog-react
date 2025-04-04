@@ -92,7 +92,7 @@ export default function PostShow({match}){
                         </div>
 
                         <div className="card-footer">
-                            <small><i className="fas fa-folder mr-1"></i><a href="#">{post.categoria}</a> /</small>
+                            <small><i className="fas fa-folder mr-1"></i>{post.categoria} / </small>
                             <small><i className="fas fa-comment mr-1"></i>0 comentarios</small>
                         </div>
                         
