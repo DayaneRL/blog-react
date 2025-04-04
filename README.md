@@ -15,10 +15,7 @@ Cadastrar-se no sistema, Logar/deslogar, Editar nome e imagem de usuário.
 Cadastrar um novo autor, categoria e posts.
 Exibir todos posts e se tiver logado meus posts.
 
-### Funcionalidades futuras
-
-Paginação;
 
 ## Testar
 
-  Link para teste: <a href="https://dayanerl-blog-react.herokuapp.com/" target="_blank"> Blog React </a>
+  Link para visualização <a href="https://dayanerl-blog-react.netlify.app" target="_blank"> Blog React </a>
