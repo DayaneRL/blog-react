@@ -115,7 +115,7 @@ export default function Post(){
 
     async function Register(e){
         e.preventDefault();
-        if(titulo!=='' && (autorSelected!==0 ||idAutor!==false) && categoriaSelected !== 0){
+        if(titulo!=='' && (autorSelected!==0 ||idAutor!==false||autorUser) && categoriaSelected !== 0){
             setSaveButton(false);
 
             if(id){
@@ -289,13 +289,15 @@ export default function Post(){
                                 )}
                             </div>
 
-                            <div className="form-check form-check col-5 col-md-2">
+                            <div className="form-check col-12 col-md-2">
                                 <input className="form-check-input" type="checkbox" value="" id="euSouOAutor" disabled={autorUser===false}
                                     onChange={ChangeCheckbox}/>
                                  Eu sou o autor
                             </div>
+                        </div>
 
-                            <div className="form-group col-md-5 col-12">
+                        <div className="row post-row">
+                            <div className="form-group col-12 col-md-12">
                                 <label>Categoria</label>
 
                                 {loadCategorias ? (

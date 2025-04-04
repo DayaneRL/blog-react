@@ -85,55 +85,55 @@ export default function Painel() {
             <FiAlignJustify size={25}/>
           </Title>
 
-        {posts.length===0 ? (
+          {posts.length===0 ? (
 
-          <div className="container painel">
-            <span>Nenhum chamado registrado...</span>
-            <Link to="/novoPost" className="novo">
-              <FiPlus size={25} color="#fff"/>Novo post
-            </Link>
-          </div> 
-        ) : (
+            <div className="container painel">
+              <span>Nenhum chamado registrado...</span>
+              <Link to="/novoPost" className="novo">
+                <FiPlus size={25} color="#fff"/>Novo post
+              </Link>
+            </div> 
+          ) : (
 
-          <div className="container">
-            {/* <Link to="/novoPost" className="novo bg-success" style={{float:"none", padding: "0.1em", marginBottom: "1em"}}>
-              <FiPlus size={25} color="#fff"/>Novo post
-            </Link> */}
+            <div className="container">
+              {/* <Link to="/novoPost" className="novo bg-success" style={{float:"none", padding: "0.1em", marginBottom: "1em"}}>
+                <FiPlus size={25} color="#fff"/>Novo post
+              </Link> */}
 
-            <div className="mb-2">
-            {posts.map((item, index)=>{
-                return(
-                  <div key={index} id="post" className="card mb-2 col-md-12 p-0 show-shadow">
+              <div className="mb-2">
+              {posts.map((item, index)=>{
+                  return(
+                    <div key={index} id="post" className="card mb-2 col-md-12 p-0 show-shadow">
+              
+                        <div className="card-body mr-0">
+                            <h3> {item.titulo} </h3>
+                            <div className="d-flex align-items-center justify-content-between small">
+                                <div>
+                                    <FiCalendar size={15} className="mr-1"/>{item.createdFormated} 
+                                    <FiUser size={15} className="ml-2 mr-1"/>{item.autor} 
+                                </div>
+                            </div>
+                            
+                            {item.imagem &&
+                            <img src={item.imagem} alt="Post imagem"/>}
+
+                            <p>{item.conteudo}</p>
+                            <Link to={`/post/${item.id}`}>Ver Detalhes</Link>
+                        </div>
             
-                      <div className="card-body mr-0">
-                          <h3> {item.titulo} </h3>
-                          <div className="d-flex align-items-center justify-content-between small">
-                              <div>
-                                  <FiCalendar size={15} className="mr-1"/>{item.createdFormated} 
-                                  <FiUser size={15} className="ml-2 mr-1"/>{item.autor} 
-                              </div>
-                          </div>
-                          
-                          {item.imagem &&
-                          <img src={item.imagem} alt="Post imagem"/>}
-
-                          <p>{item.conteudo}</p>
-                          <Link to = {`/post/${item.id}`}>Ver Detalhes</Link>
-                      </div>
-          
-                      <div className="card-footer">
-                          <small>{item.categoria} /</small>
-                          <small>0 comentarios</small>
-                      </div>
-                      
-                  </div>
-                )
-            })}
+                        <div className="card-footer">
+                            <small>{item.categoria} /</small>
+                            <small>0 comentarios</small>
+                        </div>
+                        
+                    </div>
+                  )
+              })}
+              </div>
+              
             </div>
-            
-          </div>
 
-        )}
+          )}
         </div>
 
       </div>

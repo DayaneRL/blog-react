@@ -19,10 +19,10 @@ export default function RouterWrapper({
     }
 
     //se ta logado e tentou acessar tela nao privada
-    if(signed && !isPrivate && 
-        rest.path!=='/categorias' && rest.path!=='/autores' && rest.path!=='/novoPost'){
-        return <Redirect to="/painel"/>
-    }
+    // if(signed && !isPrivate && 
+    //     rest.path!=='/categorias' && rest.path!=='/autores' && rest.path!=='/novoPost'){
+    //     return <Redirect to="/painel"/>
+    // }
 
     return(
         <Route {...rest}

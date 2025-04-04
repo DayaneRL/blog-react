@@ -83,14 +83,16 @@ export default function PostShow({match}){
                                 </div>
                             </div>
                             <hr/>
-                            <img src={post.imagem} style={{width: "90%", height: "150px", margin:"20px"}} alt="Post imagem"/>
+                            {post.imagem && (
+                                <img src={post.imagem} style={{ margin:"20px"}} alt="Post imagem"/>
+                            )}
 
                             <p>{post.conteudo} </p>
                           
                         </div>
 
                         <div className="card-footer">
-                            <small><i className="fas fa-folder mr-1"></i><a href="">{post.categoria}</a> /</small>
+                            <small><i className="fas fa-folder mr-1"></i><a href="#">{post.categoria}</a> /</small>
                             <small><i className="fas fa-comment mr-1"></i>0 comentarios</small>
                         </div>
                         
